@@ -5,10 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <title>Weather Application</title>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script defer src="./assets/js/script.js"></script>
 </head>
 <body>
-    
+
+    <header>
+
+        <h1 id="greeting"></h1>
+
+    </header>
+
+    <main>
+
+        <section id="todays-weather">
+        </section>
+
+        <aside>
+
+            <section>
+
+                <form id="city-search" action="submit">
+
+                    <h2>Search for a City:</h2>
+
+                    <input type="text">
+
+                    <button type="submit" value="submit">
+                        Search
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section>
+
+                <ul id="prev-search">
+                </ul>
+
+            </section>
+
+        </aside>
+
+        <section>
+
+            <h3>5-Day Forecast:</h3>
+
+            <section id="forecast">
+            </section>
+
+        </section>
+
+    </main>
 </body>
 </html>
