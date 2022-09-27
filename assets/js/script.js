@@ -15,16 +15,49 @@ function init() {
 
 }
 
+function getCityWeather(city) {
 
+    const weatherLink = "https://api.openweathermap.org/data/2.5/forecast?q=";
+    const apiKey = "0d7724b53ab6199eface06b3174e7688";
+
+    const requestUrl = `${weatherLink}${city}&appid=${apiKey}&cnt=6&units=imperial`
+
+    fetch(requestUrl)
+    .then(function (response) {
+      if (response.ok) {
+
+        response.json()
+
+        .then(function (data) {
+
+          console.log(data);
+
+        });
+
+      } else {
+
+        alert('Error: ' + response.statusText);
+
+      }
+    })
+    .catch(function (error) {
+
+      alert('Unable to connect to weather');
+      
+    });
+
+}
 
 function displaySearches() {
 
     for(let i = 0; i < prevSearches.length; i++) {
+
         const $searchItem = document.createElement('li');
 
         $searchItem.textContent = prevSearches[i];
 
         $prevSearchDisplay.append($searchItem)
+
     }
 
 }
@@ -42,18 +75,23 @@ function handleFormSubmit(event) {
 
     const $cityInput = document.querySelector('#city-input');
 
-    city = $cityInput.value;
+    city = $cityInput.value.trim();
+    city = city.toLowerCase();
 
     if(!prevSearches.includes(city) && city !== "") {
+
         prevSearches.push(city);
 
         localStorage.setItem('prevSearchArr', prevSearches);
 
-        getCityWeather();
+        getCityWeather(city);
         refreshSearchDisplay();
         displaySearches();
+
     } else if (prevSearches.includes(city)) {
-        console.log("Already Searched");
+
+        getCityWeather(city);
+
     } else if (city === "") {
         console.log("Please Enter a City");
     }
