@@ -1,0 +1,14 @@
+.search-area {
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-area input {
+    display: block;
+    width: 100%;
+}
+
+.search-area button {
+    width: 100%;
+}
