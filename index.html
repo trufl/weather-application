@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather Application</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script defer src="./assets/js/script.js"></script>
 </head>
@@ -19,7 +20,14 @@
 
     <main>
 
-        <section id="todays-weather">
+        <section>
+
+            <h2 id="todays-weather">
+            </h2>
+
+            <ul id="todays-conditions">
+            </ul>
+
         </section>
 
         <aside class="search-area">
@@ -49,11 +57,11 @@
 
         </aside>
 
-        <section class="object-center">
+        <section>
 
             <h3>5-Day Forecast:</h3>
 
-            <section id="forecast" class="grid grid-cols-5">
+            <section id="forecast">
             </section>
 
         </section>
