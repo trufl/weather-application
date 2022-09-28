@@ -3,6 +3,7 @@ const $todaysConditions = document.querySelector('#todays-conditions');
 const $forecastDisplay = document.querySelector('#forecast');
 const $prevSearchDisplay = document.querySelector('#prev-search');
 const $citySearchForm = document.querySelector('#city-search');
+const $forecastHeading = document.querySelector('#forecast-heading');
 let prevSearches = [];
 
 function init() {
@@ -266,6 +267,8 @@ function handleFormSubmit(event) {
     let city = $cityInput.value.trim();
     city = city.toLowerCase();
 
+    $forecastHeading.setAttribute("class", "custom-show-display");
+
     if(city !== "") {
 
         getCityWeather(city);
@@ -280,6 +283,8 @@ function handleFormSubmit(event) {
 
 function handleClickEvent(event) {
     event.stopPropagation();
+
+    $forecastHeading.setAttribute("class", "custom-show-display");
 
     const city = event.target.getAttribute("data-city");
 
