@@ -6,6 +6,18 @@ const $citySearchForm = document.querySelector('#city-search');
 let prevSearches = [];
 
 function init() {
+    const $greeting = document.querySelector('#greeting');
+    const hour = parseInt(moment().format('H'));
+
+    if(hour > 3 && hour < 12) {
+        $greeting.textContent = "Good Morning";
+    } else if(hour >= 12 && hour < 17) {
+        $greeting.textContent = "Good Afternoon";
+    } else if(hour >= 17 && hour < 19) {
+        $greeting.textContent = "Good Evening";
+    } else {
+        $greeting.textContent = "Good Night";
+    }
 
     if(localStorage.getItem('prevSearchesArr') !== null) {
 
