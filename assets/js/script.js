@@ -153,6 +153,7 @@ function displaySearches() {
 
         $searchItem.textContent = prevSearches[i];
         $searchItem.setAttribute("data-city",`${prevSearches[i]}`);
+        $searchItem.setAttribute("class", "text-amber-300 mb-1 p-1 bg-indigo-600 rounded-md hover:text-white hover:cursor-pointer");
 
         $prevSearchDisplay.append($searchItem)
 
@@ -272,7 +273,7 @@ function handleFormSubmit(event) {
 
     } else if (city === "") {
 
-        console.log("Please Enter a City");
+        alert("Please Enter a City");
 
     }
 }

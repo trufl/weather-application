@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather Application</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script defer src="./assets/js/script.js"></script>
 </head>
@@ -14,35 +15,23 @@
 
     <header>
 
-        <h1 id="greeting"></h1>
+        <h1 id="greeting" class="p-6 mb-4 text-center text-amber-300 text-4xl bg-indigo-600"></h1>
 
     </header>
 
     <main>
 
-        <section>
-
-            <h2 id="todays-weather">
-            </h2>
-
-            <section id="todays-conditions">
-            </section>
-
-        </section>
-
-        <aside class="search-area">
+        <aside class="search-area p-2 m-2 float-left flex flex-col w-72">
 
             <section>
 
                 <form id="city-search" action="submit">
 
-                    <h2>Search for a City:</h2>
+                    <h2 class="text-2xl mb-1">Search for a City:</h2>
 
-                    <input id="city-input" type="text"  placeholder="Enter City Name">
+                    <input id="city-input" class="block w-full rounded-md mb-1" type="text"  placeholder="Enter City Name">
 
-                    <button type="submit" value="submit"> 
-                        Search
-                    </button>
+                    <button type="submit" class="text-white w-full bg-cyan-500 p-1 mb-1 rounded-md hover:text-amber-300" value="submit">Search</button>
 
                 </form>
 
@@ -50,7 +39,7 @@
 
             <section>
 
-                <ul id="prev-search">
+                <ul id="prev-search" class="text-center">
                 </ul>
 
             </section>
@@ -59,9 +48,23 @@
 
         <section>
 
-            <h3>5-Day Forecast:</h3>
+            <section>
 
-            <section id="forecast">
+                <h2 id="todays-weather">
+                </h2>
+
+                <section id="todays-conditions">
+                </section>
+
+            </section>
+
+            <section>
+
+                <h3>5-Day Forecast:</h3>
+
+                <section id="forecast">
+                </section>
+
             </section>
 
         </section>
