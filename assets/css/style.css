@@ -1,0 +1,34 @@
+.search-area {
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-area input {
+    display: block;
+    width: 100%;
+}
+
+.search-area button {
+    width: 100%;
+}
+
+.low-index {
+    background-color: lightgreen;
+}
+
+.moderate-index {
+    background-color: yellow;
+}
+
+.high-index {
+    background-color: orange;
+}
+
+.v-high-index {
+    background-color: red;
+}
+
+.extreme-index {
+    background-color: blueviolet;
+}

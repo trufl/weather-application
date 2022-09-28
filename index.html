@@ -5,10 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <title>Weather Application</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script defer src="./assets/js/script.js"></script>
 </head>
 <body>
-    
+
+    <header>
+
+        <h1 id="greeting"></h1>
+
+    </header>
+
+    <main>
+
+        <section>
+
+            <h2 id="todays-weather">
+            </h2>
+
+            <section id="todays-conditions">
+            </section>
+
+        </section>
+
+        <aside class="search-area">
+
+            <section>
+
+                <form id="city-search" action="submit">
+
+                    <h2>Search for a City:</h2>
+
+                    <input id="city-input" type="text"  placeholder="Enter City Name">
+
+                    <button type="submit" value="submit"> 
+                        Search
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section>
+
+                <ul id="prev-search">
+                </ul>
+
+            </section>
+
+        </aside>
+
+        <section>
+
+            <h3>5-Day Forecast:</h3>
+
+            <section id="forecast">
+            </section>
+
+        </section>
+
+    </main>
 </body>
 </html>
