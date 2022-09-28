@@ -12,3 +12,23 @@
 .search-area button {
     width: 100%;
 }
+
+.low-index {
+    background-color: lightgreen;
+}
+
+.moderate-index {
+    background-color: yellow;
+}
+
+.high-index {
+    background-color: orange;
+}
+
+.v-high-index {
+    background-color: red;
+}
+
+.extreme-index {
+    background-color: blueviolet;
+}

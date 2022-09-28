@@ -8,9 +8,11 @@ let prevSearches = [];
 function init() {
 
     if(localStorage.getItem('prevSearchesArr') !== null) {
-        prevSearches = localStorage.getItem('prevSearchesArr');
+
+        prevSearches = JSON.parse(localStorage.getItem("prevSearchesArr"));
 
         displaySearches();
+
     }
 
 }
@@ -45,7 +47,7 @@ function getCityWeather(city) {
 
             prevSearches.push(city);
 
-            localStorage.setItem('prevSearchArr', prevSearches);
+            localStorage.setItem("prevSearchesArr", JSON.stringify(prevSearches));
 
         }
 
@@ -74,7 +76,7 @@ function displayWeather(weatherData) {
     const todaysTemp = `Temp: ${weatherData.data[0].temp}\xB0F`;
     const todaysWind = `Wind: ${weatherData.data[0].wind_spd} MPH`;
     const todaysHumidity = `Humidity: ${weatherData.data[0].rh}%`;
-    const todaysUv = `UV Index: ${weatherData.data[0].uv}`;
+    const todaysUv = `UV Index: <span class="${getUVColor(weatherData.data[0].uv)}">${weatherData.data[0].uv}</span>`;
     const conditionsArray = [todaysTemp,todaysWind,todaysHumidity,todaysUv];
 
     $todaysWeather.textContent = `${cityName} ${todaysDate} ${todaysSymbol}`;
@@ -83,7 +85,15 @@ function displayWeather(weatherData) {
 
         const $conditionItem = document.createElement('p');
 
-        $conditionItem.textContent = conditionsArray[i];
+        if(i < 3) {
+
+            $conditionItem.textContent = conditionsArray[i];
+
+        } else {
+
+            $conditionItem.innerHTML = conditionsArray[i];
+
+        }
 
         $todaysConditions.append($conditionItem);
 
@@ -130,6 +140,7 @@ function displaySearches() {
         const $searchItem = document.createElement('li');
 
         $searchItem.textContent = prevSearches[i];
+        $searchItem.setAttribute("data-city",`${prevSearches[i]}`);
 
         $prevSearchDisplay.append($searchItem)
 
@@ -163,6 +174,21 @@ function refreshSearchDisplay() {
 
     }
 
+}
+
+function getUVColor(uvIndexNum) {
+
+    if(uvIndexNum < 3) {
+        return "low-index";
+    } else if(uvIndexNum < 6) {
+        return "moderate-index";
+    } else if(uvIndexNum < 8) {
+        return "high-index";
+    } else if(uvIndexNum < 11) {
+        return "v-high-index";
+    } else {
+        return "extreme-index";
+    }
 }
 
 function getEmoji(emojiCode) {
@@ -239,4 +265,15 @@ function handleFormSubmit(event) {
     }
 }
 
+function handleClickEvent(event) {
+    event.stopPropagation();
+
+    const city = event.target.getAttribute("data-city");
+
+    getCityWeather(city);
+
+}
+
+init();
 $citySearchForm.addEventListener('submit', handleFormSubmit);
+$prevSearchDisplay.addEventListener('click', handleClickEvent);
