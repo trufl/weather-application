@@ -1,20 +1,13 @@
-.search-area {
-    float: left;
-    display: flex;
-    flex-direction: column;
+.hide-default-display{
+    display: none;
 }
 
-.search-area input {
+.custom-show-display {
     display: block;
-    width: 100%;
-}
-
-.search-area button {
-    width: 100%;
 }
 
 .low-index {
-    background-color: lightgreen;
+    background-color: rgb(13, 178, 13);
 }
 
 .moderate-index {

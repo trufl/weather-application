@@ -3,6 +3,7 @@ const $todaysConditions = document.querySelector('#todays-conditions');
 const $forecastDisplay = document.querySelector('#forecast');
 const $prevSearchDisplay = document.querySelector('#prev-search');
 const $citySearchForm = document.querySelector('#city-search');
+const $forecastHeading = document.querySelector('#forecast-heading');
 let prevSearches = [];
 
 function init() {
@@ -153,6 +154,7 @@ function displaySearches() {
 
         $searchItem.textContent = prevSearches[i];
         $searchItem.setAttribute("data-city",`${prevSearches[i]}`);
+        $searchItem.setAttribute("class", "text-amber-300 mb-1 p-1 bg-indigo-600 rounded-md hover:text-white hover:cursor-pointer");
 
         $prevSearchDisplay.append($searchItem)
 
@@ -265,6 +267,8 @@ function handleFormSubmit(event) {
     let city = $cityInput.value.trim();
     city = city.toLowerCase();
 
+    $forecastHeading.setAttribute("class", "custom-show-display");
+
     if(city !== "") {
 
         getCityWeather(city);
@@ -272,13 +276,15 @@ function handleFormSubmit(event) {
 
     } else if (city === "") {
 
-        console.log("Please Enter a City");
+        alert("Please Enter a City");
 
     }
 }
 
 function handleClickEvent(event) {
     event.stopPropagation();
+
+    $forecastHeading.setAttribute("class", "custom-show-display");
 
     const city = event.target.getAttribute("data-city");
 
