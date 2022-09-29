@@ -21,7 +21,7 @@ The application is also able to save and display previous searches. To visit the
 https://trufl.github.io/weather-application/
 
 
-    ![screenshot](assets/images/screenshot.png)
+    ![screenshot](./assets/images/screenshot.png)
 
 ## Credits
 
