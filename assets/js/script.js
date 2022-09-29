@@ -83,6 +83,7 @@ function getCityWeather(city) {
 
 function displayWeather(weatherData) {
 
+    const $todaysDisplaySection = document.querySelector('#todays-display');
     const cityName = weatherData.city_name;
     const todaysDate = moment(weatherData.data[0].valid_date).format("(MM/DD/YYYY)");
     const todaysSymbol = getEmoji(weatherData.data[0].weather.code);
@@ -108,6 +109,7 @@ function displayWeather(weatherData) {
 
         }
 
+        $todaysDisplaySection.setAttribute('class', 'flex content-center justify-center flex-col ml-3 p-6 mb-3 w-3/4 border-2 border-indigo-500 rounded-md');
         $todaysConditions.append($conditionItem);
 
     }
@@ -128,7 +130,8 @@ function displayForecast(weatherData) {
         const $forecastDate = document.createElement('h4');
 
         $forecastDate.textContent = date;
-        $forecastSection.append($forecastDate)
+        $forecastSection.append($forecastDate);
+        $forecastSection.setAttribute('class', 'mr-2 border-2 rounded-md border-indigo-500 p-4');
 
         for (let x = 0; x < conditionsArray.length; x++) {
 
@@ -267,7 +270,7 @@ function handleFormSubmit(event) {
     let city = $cityInput.value.trim();
     city = city.toLowerCase();
 
-    $forecastHeading.setAttribute("class", "custom-show-display");
+    $forecastHeading.setAttribute("class", "custom-show-display mb-2");
 
     if(city !== "") {
 
@@ -284,7 +287,7 @@ function handleFormSubmit(event) {
 function handleClickEvent(event) {
     event.stopPropagation();
 
-    $forecastHeading.setAttribute("class", "custom-show-display");
+    $forecastHeading.setAttribute("class", "custom-show-display mb-2");
 
     const city = event.target.getAttribute("data-city");
 

@@ -8,20 +8,34 @@
 
 .low-index {
     background-color: rgb(13, 178, 13);
+    padding: 1px 2px;
+    border-radius: 2px;
+    color: white;
 }
 
 .moderate-index {
     background-color: yellow;
+    padding: 1px 2px;
+    border-radius: 2px;
 }
 
 .high-index {
     background-color: orange;
+    padding: 1px 2px;
+    border-radius: 2px;
+    color: white;
 }
 
 .v-high-index {
     background-color: red;
+    padding: 1px 2px;
+    border-radius: 2px;
+    color: white;
 }
 
 .extreme-index {
     background-color: blueviolet;
+    padding: 1px 2px;
+    border-radius: 2px;
+    color: white;
 }
